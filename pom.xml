@@ -19,7 +19,6 @@
         <aspectj.version>1.9.4</aspectj.version>
         <reportVersion.version>2.4.1</reportVersion.version>
         <slf4j-simple.version>1.7.30</slf4j-simple.version>
-        <maven-surefire.version>2.22.2</maven-surefire.version>
         </properties>
 
     <dependencies>
@@ -97,7 +96,7 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
-                        <include>**\*Test*.java</include>
+                        <include>**/*Test*.java</include>
                     </includes>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
