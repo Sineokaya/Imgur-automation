@@ -1,4 +1,4 @@
-package ru.geekbrains.tests;
+package lesson4.tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,40 +7,36 @@ import java.io.File;
 
 import static io.restassured.RestAssured.given;
 
-public class DeleteImageTests extends BaseTest{
+
+import static lesson4.Images.IMAGE_FILE1;
+
+import static lesson4.Images.IMG2_PNG;
+
+
+public class DeleteImageTests extends BaseTest {
+
     String imageDeleteHash;
-    String imageDeleteHash2;
     String imageDeleteId;
     @BeforeEach
-    void setUpHash() {
+    void setUp() {
         imageDeleteHash = given()
                 .header("Authorization", token)
-                .body(new File("src/test/resources/images/img.png"))
+                .body(new File(IMAGE_FILE1.getPath()))
                 .when()
                 .post("/image")
                 .jsonPath()
                 .get("data.deletehash");
     }
+
     @BeforeEach
-    void setUpId() {
+    void setUp2() {
         imageDeleteId = given()
                 .header("Authorization", token)
-                .body(new File("src/test/resources/images/img2.png"))
+                .body(new File(IMG2_PNG.getPath()))
                 .when()
                 .post("/image")
                 .jsonPath()
                 .get("data.id");
-
-    }
-    @BeforeEach
-    void setUpHashNoAuthorization() {
-        imageDeleteHash2 = given()
-                .header("Authorization", token)
-                .body(new File("src/test/resources/images/img.png"))
-                .when()
-                .post("/image")
-                .jsonPath()
-                .get("data.deletehash");
     }
 
     @Test
@@ -55,7 +51,7 @@ public class DeleteImageTests extends BaseTest{
     }
 
     @Test
-    void deleteExistentImageIdTest() {
+    void deleteExistentImageIDTest() {
         given()
                 .header("Authorization", token)
                 .when()
@@ -66,13 +62,14 @@ public class DeleteImageTests extends BaseTest{
     }
 
     @Test
-    void deleteExistentImageNoAuthorizationTest() {
+    void deleteExistentImageNoAuthTest() {
         given()
-               // .header("Authorization", token)
                 .when()
-                .delete("image/{imageHash}", imageDeleteId)
+                .delete("image/{imageHash}", imageDeleteHash)
                 .prettyPeek()
                 .then()
                 .statusCode(200);
     }
 }
+
+
