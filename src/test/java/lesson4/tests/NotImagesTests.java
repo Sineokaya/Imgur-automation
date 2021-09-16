@@ -1,5 +1,6 @@
 package lesson4.tests;
 
+import io.qameta.allure.Feature;
 import io.restassured.specification.RequestSpecification;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.AfterEach;
@@ -25,6 +26,7 @@ public class NotImagesTests extends BaseTest {
     RequestSpecification imageRequestSpecification;
 
     @Test
+    @Feature("upload.Log")
     void uploadImageFileDebugLogTest() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)
@@ -42,6 +44,7 @@ public class NotImagesTests extends BaseTest {
     }
 
     @Test
+    @Feature("upload.html")
     void uploadImageFileHtmlTest() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)
@@ -59,6 +62,7 @@ public class NotImagesTests extends BaseTest {
     }
 
     @Test
+    @Feature("upload.docx")
     void uploadImageFileTestDocxTest() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)

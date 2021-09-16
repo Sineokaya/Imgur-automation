@@ -54,6 +54,7 @@ public class ImageTests extends BaseTest {
     }
 
 @Test
+@Feature("uploadImageTIFF50Mb")
     void uploadImageFileTiff50MbTest() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)
@@ -70,6 +71,7 @@ public class ImageTests extends BaseTest {
                 .getString("data.deletehash");
     }
     @Test
+    @Feature("uploadImageBig50Mb")
     void uploadImageFileTiffBig50MbTest() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)
@@ -105,6 +107,7 @@ public class ImageTests extends BaseTest {
     }
 
     @Test
+    @Feature("uploadImagePNG2")
     void uploadImageFileImg2Test() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)
@@ -121,6 +124,7 @@ public class ImageTests extends BaseTest {
                 .getString("data.deletehash");
     }
     @Test
+    @Feature("uploadImagePNG")
     void uploadImageFileImg3Test() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)
@@ -138,6 +142,7 @@ public class ImageTests extends BaseTest {
     }
 
     @Test
+    @Feature("uploadImageJPG")
     void uploadImageFileItTest() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)
@@ -155,6 +160,7 @@ public class ImageTests extends BaseTest {
     }
 
     @Test
+    @Feature("uploadImageTIFF")
     void uploadImageFileTiffTest() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)
@@ -172,6 +178,7 @@ public class ImageTests extends BaseTest {
     }
 
     @Test
+    @Feature("uploadImageTiger")
     void uploadImageFileTigerTest() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)
@@ -207,6 +214,7 @@ public class ImageTests extends BaseTest {
 
     //загрузка по URL
     @Test
+    @Feature("uploadURL")
     void uploadFileURLTest() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)
@@ -222,6 +230,7 @@ public class ImageTests extends BaseTest {
     }
 
     @Test
+    @Feature("uploadPNG")
     void uploadFilePNG_1_1Test() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)

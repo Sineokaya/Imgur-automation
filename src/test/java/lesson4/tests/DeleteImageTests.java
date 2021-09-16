@@ -1,5 +1,6 @@
 package lesson4.tests;
 
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -40,6 +41,7 @@ public class DeleteImageTests extends BaseTest {
     }
 
     @Test
+    @Feature("deleteImageHashTest")
     void deleteExistentImageHashTest() {
         given()
                 .header("Authorization", token)
@@ -51,6 +53,7 @@ public class DeleteImageTests extends BaseTest {
     }
 
     @Test
+    @Feature("DeleteImageId")
     void deleteExistentImageIDTest() {
         given()
                 .header("Authorization", token)
@@ -62,6 +65,7 @@ public class DeleteImageTests extends BaseTest {
     }
 
     @Test
+    @Feature("DeleteImageNoAuth")
     void deleteExistentImageNoAuthTest() {
         given()
                 .when()
