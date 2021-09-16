@@ -1,5 +1,6 @@
 package lesson4.tests;
 
+import io.qameta.allure.Feature;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import lesson4.Images;
@@ -35,6 +36,7 @@ public class ImageTests extends BaseTest {
     RequestSpecification imageRequestSpecification;
 
     @Test
+    @Feature("uploadImage")
     void uploadImageFileTest() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)
@@ -85,6 +87,7 @@ public class ImageTests extends BaseTest {
     }
 
     @Test
+    @Feature("uploadImageBMP")
     void uploadImageFileBmpTest() {
         imageDeleteHash=  given()
                 .spec(requestSpecification)
